@@ -19,7 +19,7 @@ function formatUptMessage({ uptimeString, cpu, cores, usedMem, totalMem, hostnam
 ──────⦿ 𝗨𝘀𝗲͜͡𝗿 :☄️ ${totalUsers}💥💫
 
 𝐖𝐡𝐨 𝐢͜͡𝐚𝐦 𝐲𝐨𝐮 𝐡𝐚𝐯𝐞 𝐧𝐨 𝐢𝐝𝐞𝐚 🚩
-𝐁𝐨𝐭 𝐎𝐰𝐧𝐞𝐫 𝐕𝐢𝐫𝐮𝐬 𝐬𝐢𝐲𝐚𝐦 🍾❕
+𝐁𝐨𝐭 𝐎𝐰𝐧𝐞𝐫 𝐕𝐢𝐫𝐮𝐬 𝙋𝙍𝙄𝙉𝘾𝙀 🍾❕
 
 ╰────────────◊☄️👀❕
 `;
