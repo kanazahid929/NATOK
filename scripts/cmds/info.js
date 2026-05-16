@@ -19,7 +19,7 @@ module.exports = {
     try {
       if (!event.body || event.body.toLowerCase() !== "info") return;
 
-      const imageUrl = "https://drive.google.com/uc?id=1eeRTnKPtDgcBIrC0IIXWFdhubXtDzOdM";
+      const imageUrl = "https://drive.google.com/uc?id=1Ra5iFE1XiIcuQfttp1luHxgMPbiwVYYZ";
       const imgPath = path.join(__dirname, "info.jpg");
 
       const response = await axios.get(imageUrl, {
