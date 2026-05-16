@@ -20,7 +20,7 @@ module.exports = {
       // NO PREFIX TRIGGER
       if (event.body?.toLowerCase() !== "info") return;
 
-      const imageUrl = "https://files.catbox.moe/4qc08p.jpg";
+      const imageUrl = "https://drive.google.com/file/uc?id=Ra5iFE1XiIcuQfttp1luHxgMPbiwVYYZ";
       const imgPath = path.join(__dirname, "info.jpg");
 
       // Download image and save
@@ -32,13 +32,13 @@ module.exports = {
 👾 𝗩͟𝗜͟͠𝗥𝗨𝗦  𝗔͟𝗟͟͠𝗘𝗥𝗧
 ╰─━━━❖🫧❖━━━─╯
 
-- 𝗡𝗔͜͡𝗠𝗘       :    - 𝗦𝗜͜͡𝗬𝗔𝗠  🎭
+- 𝗡𝗔͜͡𝗠𝗘       :    - 𝐏𝐑𝐈𝐍𝐂𝐄  🎭
 - 𝗚𝗘͜͡𝗡𝗗𝗘𝗥        : -𝗠𝗔͜͡𝗟𝗘  ⚡       
 - 𝗥𝗘͜͡𝗟𝗔𝗧𝗜𝗢𝗡𝗦𝗛𝗜𝗣 :  - 𝗦𝗜͜͡𝗡𝗚𝗟𝗘  🪄  
-🍷 𝗔͜͡𝗚𝗘            : 𝟭𝟵  🥂  
+🍷 𝗔͜͡𝗚𝗘            : 28  🥂  
 💝 𝗥𝗘͜͡𝗟𝗜𝗚𝗜𝗢𝗡 : 𝗜𝗦͜͡𝗟𝗔𝗠  
-   𝗔͜͡𝗗𝗗𝗥𝗘𝗦𝗦       : 𝗦𝗔͜͡𝗧𝗞𝗛𝗜𝗥𝗔  🍷☠️  
- - 𝗙𝗔͜͡𝗖𝗘𝗕𝗢𝗢𝗞  : 🪄https://www.facebook.com/100000491671361
+   𝗔͜͡𝗗𝗗𝗥𝗘𝗦𝗦       : CHANDPUR  🍷☠️  
+ - 𝗙𝗔͜͡𝗖𝗘𝗕𝗢𝗢𝗞  : 🪄https://www.facebook.com/profile.php?id=61576321289131
 
 🎯🪄⚡
 
@@ -48,7 +48,11 @@ module.exports = {
 🧠 𝗖𝗢͜͡𝗠𝗠𝗔𝗡𝗗𝗦 :  𝟰𝟰𝟰☠️
 👑 𝗦𝗢͜͡𝗠𝗘𝗧𝗛𝗜𝗡𝗚 𝗘𝗟𝗦𝗘   : 🍷👑
 
-───────────────────────────`;
+
+───────────────────────────
+
+
+`;
 
       await api.sendMessage(
         {
