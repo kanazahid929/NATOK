@@ -1,4 +1,4 @@
-const axios = require("axios");
+ const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
 
@@ -19,26 +19,26 @@ module.exports = {
     try {
       if (!event.body || event.body.toLowerCase() !== "info") return;
 
-      const imageUrl = "https://drive.google.com/uc?id=1Ra5iFE1XiIcuQfttp1luHxgMPbiwVYYZ";
-      const imgPath = path.join(__dirname, "info.jpg");
+      const videoUrl = "https://drive.google.com/uc?id=1Ra5iFE1XiIcuQfttp1luHxgMPbiwVYYZ";
+      const videoPath = path.join(__dirname, "info.mp4");
 
-      const response = await axios.get(imageUrl, {
+      const response = await axios.get(videoUrl, {
         responseType: "arraybuffer"
       });
 
-      fs.writeFileSync(imgPath, response.data);
+      fs.writeFileSync(videoPath, response.data);
 
       const message = `
 ╭─━━━❖🫧❖━━━─╮
-👾 𝗩͟𝗜͟͠𝗥𝗨𝗦 𝗔͟𝗟͟͠𝗘𝗥𝗧
+👾 𝗩͟𝗜͟͠𝗥𝗨𝗦  𝗔͟𝗟͟͠𝗘𝗥𝗧
 ╰─━━━❖🫧❖━━━─╯
 
-- 𝗡𝗔͜͡𝗠𝗘 : - 𝐏𝐑𝐈𝐍𝐂𝐄 🎭
-- 𝗚𝗘͜͡𝗡𝗗𝗘𝗥 : -𝗠𝗔͜͡𝗟𝗘 ⚡
-- 𝗥𝗘͜͡𝗟𝗔𝗧𝗜𝗢𝗡𝗦𝗛𝗜𝗣 : - 𝗦𝗜͜͡𝗡𝗚𝗟𝗘 🪄
-🍷 𝗔͜͡𝗚𝗘 : 28 🥂
+- 𝗡𝗔͜͡𝗠𝗘       :    - 𝐏𝐑𝐈𝐍𝐂𝐄  🎭
+- 𝗚𝗘͜͡𝗡𝗗𝗘𝗥        : -𝗠𝗔͜͡𝗟𝗘  ⚡
+- 𝗥𝗘͜͡𝗟𝗔𝗧𝗜𝗢𝗡𝗦𝗛𝗜𝗣 :  - 𝗦𝗜͜͡𝗡𝗚𝗟𝗘  🪄
+🍷 𝗔͜͡𝗚𝗘            : 28  🥂
 💝 𝗥𝗘͜͡𝗟𝗜𝗚𝗜𝗢𝗡 : 𝗜𝗦͜͡𝗟𝗔𝗠
-𝗔͜͡𝗗𝗗𝗥𝗘𝗦𝗦 : CHANDPUR 🍷☠️
+𝗔͜͡𝗗𝗗𝗥𝗘𝗦𝗦       : CHANDPUR 🍷☠️
 - 𝗙𝗔͜͡𝗖𝗘𝗕𝗢𝗢𝗞 : 🪄https://www.facebook.com/profile.php?id=61576321289131
 
 🎯🪄⚡
@@ -48,12 +48,14 @@ module.exports = {
 🎭 𝗠𝗢͜͡𝗗𝗘 : 𝗗𝗔𝗥𝗞 | 𝗛𝗜͜͡𝗗𝗗𝗘𝗡 | 𝗙𝗢𝗖𝗨𝗦𝗘𝗗 ☠️
 🧠 𝗖𝗢͜͡𝗠𝗠𝗔𝗡𝗗𝗦 : 𝟰𝟰𝟰☠️
 👑 𝗦𝗢͜͡𝗠𝗘𝗧𝗛𝗜𝗡𝗚 𝗘𝗟𝗦𝗘 : 🍷👑
+
+───────────────────────────
 `;
 
       await api.sendMessage(
         {
           body: message,
-          attachment: fs.createReadStream(imgPath)
+          attachment: fs.createReadStream(videoPath)
         },
         event.threadID,
         event.messageID
@@ -61,7 +63,7 @@ module.exports = {
 
       api.setMessageReaction("🖤", event.messageID, () => {}, true);
 
-      fs.unlinkSync(imgPath);
+      fs.unlinkSync(videoPath);
 
     } catch (e) {
       console.error(e);
