@@ -1,44 +1,61 @@
-const axios = require('axios');
-const jimp = require("jimp");
-const fs = require("fs");
-
 module.exports = {
-    config: {
-        name: "propose",
-        aliases: ["pps"],
-        version: "1.0",
-        author: "Alfred Marshall",
-        countDown: 5,
-        role: 0,
-        shortDescription: "Purpose Your Beb",
-        longDescription: "Purpose Your Beb",
-        category: "love",
-        guide: {
-            vi: "{pn} @tag ",
-            en: "{pn} @tag "
-        }
-    },
-    onStart: async function ({ message, args, event, api }) {
-        const mention = Object.keys(event.mentions);
-        if (mention.length == 0) return message.reply("Please mention someone");
-        else if (mention.length == 1) {
-            const one = event.senderID, two = mention[0];
-            bal(one, two).then(ptth => { message.reply({ body: "Please Babe Accept My Love </3", attachment: fs.createReadStream(ptth) }) })
-        } else {
-            const one = mention[1], two = mention[0];
-            bal(one, two).then(ptth => { message.reply({ body: "Please Babe Accept My Love </3", attachment: fs.createReadStream(ptth) }) })
-        }
-    }
-};
+config: {
+name: "propose",
+version: "1.0",
+author: "Siyam ",
+role: 2,
+category: "fun",
+noPrefix: true
+},
 
-async function bal(one, two) {
-    const avone = await jimp.read(`https://graph.facebook.com/${one}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`);
-    avone.circle();
-    const avtwo = await jimp.read(`https://graph.facebook.com/${two}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`);
-    avtwo.circle();
-    const pth = "abcd.png";
-    const img = await jimp.read("https://i.imgur.com/MUMZez4.png");
-    img.resize(1077, 718).composite(avone.resize(80, 80), 280, 200).composite(avtwo.resize(80, 80), 530, 365);
-    await img.writeAsync(pth);
-    return pth;
+onStart: async function () {},
+
+onChat: async function ({ api, event }) {
+const text = event.body?.toLowerCase();
+
+// শুধু 'propose' keyword trigger করবে  
+if (!text.startsWith("propose")) return;  
+
+// React on just "propose"  
+if (text === "propose") {  
+  api.setMessageReaction("💍", event.messageID, () => {}, true);  
+  return;  
+}  
+
+// Mention check  
+const mention = Object.keys(event.mentions)[0];  
+if (!mention) return api.sendMessage("‎●───༆🌺●───༆༊\n\n✨𝐭𝐡𝐢𝐬 𝐚𝐛𝐨𝐮𝐭 𝐥𝐢𝐧𝐞!-💜💭\n\nসিয়াম বস তুমি কোন মেয়েকে ভালোবাসা দিতে চাও মেনশন দাও 🌛😇", event.threadID, event.messageID);  
+
+const name = event.mentions[mention];  
+const tag = [{ id: mention, tag: name }];  
+
+const messages = [  
+  `🐰♡︎𝗕𝗲✨🍥𝗠𝗶𝗻𝗲-!<😻🍭!🧚‍♀️𝗜🐼-𝗪𝗶𝗹𝗹✨🍒𝗸𝗲𝗲𝗽😽𝘆𝗼𝘂-🧸💜-𝗙𝗼𝗿𝗲𝘃𝗲𝗿🌈🍒তুমি আমার সাধ্যের বাহিরে চাওয়া এক সুন্দর মানুষ।।🙂💔${name}`,
+      `𝗟𝗶𝗳𝗲 𝗶𝘀 𝗯𝗲𝗮𝘂𝘁𝗶𝗳𝘂𝗹 𝗶𝗳 𝘆𝗼𝘂 𝗗𝗼𝗻𝘁 𝗙𝗮𝗹𝗹 𝗶𝗻 𝗟𝗼𝘃𝗲 ♡︎_জীবন সুন্দর যদি কারো মায়ায় না পড়ো - ${name}`,
+      ` 🐰✨𝗜 𝗟𝗼𝘃𝗲 𝗨<33 𝗦𝘂𝗰𝗵 𝗔𝗻 𝗨𝗴𝗹𝘆 𝗪𝗼𝗿𝗱✨🦋 𝗦𝗵𝗼𝘂𝗹𝗱 𝗕𝗲!ᵉ_🔐💜💫_একরাশ উচ্ছ্বাসের মাঝে আমার হটাৎ থেমে যাওয়ার কারণ তুমি🌸 ${name}`,
+      ` 𝗣𝗲𝗵𝗹𝗶 𝗡𝗮𝘇𝗮𝗿 𝗠𝗮𝗶𝗻 𝗞𝗮𝗶𝗦𝗔 𝗝𝗔𝗗𝘂 𝗞𝗮𝗿 𝗗𝗶𝘆𝗔 🫶${name}`,
+      `!!লাইন টা তুমার জন্য  ডুবেছি আমি তুমার প্রেমের অনন্ত মায়ায় 🙈 ༅༎❤️🌸__৫ღ🪶🩷অনেক༎ইচ্ছে༎করে༎তোমাকে༎খুব༎শক্ত༎করে༎জড়িয়ে༎ধরে༎বলি༎ভালোবাসি༎নিজের༎চেয়ে বেশি༅ ${name}`,
+      `༊༅༎জান গো তুমি কোথায়-༊༅༎🥰🙈༊༅༎ওরা না আমারে সিঙ্গেল বলে খেপায়😕😞🥺༊༅💚 ${name}`,
+      ` একটা তুমি থাকলে নিজেকে ☺️বদলে ফেলতাম༅༊✾︵☺️🤍${name}`,
+      `  . ⎯͢⎯⃝💚🍒___ღ࿐༅༎🖤🌻💚✨𝐁𝐛𝐳 𝐅𝐞𝐞𝐋 𝐓𝐡𝐢𝐬 𝐋𝐢𝐧𝐞 :)>(🧡🦋♡︎⎯͢⎯⃝🩷যে চোখের চাহনিতে ছোট্টগল্পের বাস তার অন্তরে লুকিয়ে আছে হাজার ও উপন্যাস ♡︎⎯͢⎯⃝🩷🌻__ღ৫${name}`,
+      ` ︵🦋জীবনে এমন কাউকে চাই︵✾༅ যার মধ্যে কোনো Ego- attitude🫰🤍থাকবে না༊︵✾ ●●❥____শুধু দিন শেষে এসে ✨🤍🫰 ❛❛দাবি করবে 🥰🤍✨ ❛❛ তুমি শুধু আমার──˙⁠❥${name}`,
+      ` 🐰হাজার বার বিচ্ছেদের পরেও---🙂🥀কোটি বার আমার আপনাকেই চাই--- 😇🥀----${name}`,
+      ` যখন থেকে পরী হয়ে বাসা বেধেঁছ আমার চোখে তখন থেকে তুমি ছাড়া আর কিছুই ভালো লাগেনা❤️${name}`,
+      `✨𝗬𝗼𝘂𝗿𝗲 𝗻𝗼𝘁 𝗴𝗼𝗶𝗻𝗴 𝘁𝗼 𝗯𝗲 𝘁𝗵𝗲 𝘀𝗸𝘆.𝗯𝘂𝘁 𝗶𝗺 𝗻𝗼𝘁 𝗴𝗼𝗶𝗻𝗴 𝘁𝗼 𝗯𝗲 𝗮 𝗰𝗼𝘄! ${name}`,
+
+      ` 🌈🍒তুমি বরং আকাশ হও মেঘ ভাসানোর বেলা আমি না হয় গোধুলি হবো নিছক সন্ধাবেলা..!${name}`,
+      ` 💟🍒🐼🌻_তোমাকে ছাড়া আমি বুঝিনা কোনো কিছু যে আর পৃথিবী যেনে যাক তুমি সুধু আমার🥺🦋🪄${name}`,
+      ` 💚🌺𝐈𝐭𝐬 𝐦𝐲 𝐁𝐞𝐬𝐭 𝐅𝐞𝐞𝐥𝐢𝐧𝐠🦋আকাশটা কাগজ হোক ! বৃষ্টি হবে কালি!💚🌻༅🙂🌸প্রকৃতি লিখবে প্রেমের  কবিতা 🌺${name}`,
+      ` তোমার বুকের মাঝে চুমু দেবো আমি 👀চিরকাল জান🙈🥀🥰${name}`,
+      `💚🌺𝐈𝐭𝐬 𝐦𝐲 𝐁𝐞𝐬𝐭 𝐅𝐞𝐞𝐥𝐢𝐧𝐠🦋আকাশটা কাগজ হোক ! বৃষ্টি হবে কালি!💚🌻༅🙂🌸প্রকৃতি লিখবে প্রেমের  কবিতা 🌺 LOVE YOU 🌛😑 বেশি হয়ে গেলো 😦 ${name}`,
+      ` যদি তুমি মনে করো সুখে নেই তবে তুমি ফিরে আসো আমার বুকে এখনো আগ্লে রাখবো তোমাকে😒😒${name}`,
+      ` 🥺💫🌧️\n\n\n\n\n prince__বসের ভালোবাসা শেষ হয়না পাগল এগুলো সামান্য নমুনা সিয়াম বস নিঃসন্দেহে তোমাকে ভালোবাসে আর এটা‌ ছিলো সামান্য নমুনা 🥺💚💫${name}`,
+    ];
+messages.forEach((msg, i) => {  
+  setTimeout(() => {  
+    api.sendMessage({ body: msg, mentions: tag }, event.threadID);  
+  }, 2000 * i);  
+});
+
 }
+};
