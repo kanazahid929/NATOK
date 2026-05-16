@@ -51,7 +51,7 @@ module.exports = {
         "• 1 add → Add yourself (failed messages hidden)";
 
       // 🔥 External image URL
-      const imageUrl = "https://files.catbox.moe/e3bb3v.jpg";
+      const imageUrl = "https://drive.google.com/file/d/1KodTWUtGPKtbJzqE8P33HGHM-XORadzQ/view?usp=drivesdk";
       const imagePath = path.resolve(__dirname, "temp_image.jpg");
 
       // Download image
