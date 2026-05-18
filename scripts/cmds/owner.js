@@ -21,7 +21,7 @@ module.exports = {
         nick: '𝙋𝙍𝙄𝙉𝘾𝙀 ⚠️‍☠  '
       };
 
-      const videoUrl = 'https://files.catbox.moe/y7ikg6.mp4';
+      const videoUrl = 'https://drive.google.com/uc?id=1QyrDMSFSA0IC0gG5VAhhrbNVMWt3Ej0I';
       const tmpFolderPath = path.join(__dirname, 'tmp');
 
       if (!fs.existsSync(tmpFolderPath)) {
