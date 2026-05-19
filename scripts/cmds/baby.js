@@ -166,7 +166,7 @@ module.exports.onChat = async ({
         const body = event.body ? event.body?.toLowerCase() : ""
         if (body.startsWith("baby") || body.startsWith("bby") || body.startsWith("bot") || body.startsWith("jan") || body.startsWith("babu") || body.startsWith("janu")) {
             const arr = body.replace(/^\S+\s*/, "")
-            const randomReplies = ["😚", "Yes 😀, I am here", "What's up?", "Bolo jaan ki korte panmr jonno"];
+            const randomReplies = ["😚", "Yes 😀, I am here", "What's up?", "•┄┅════❁🌺❁════┅┄•╮\n\n✢━━━━━━━━━━━━━━━✢\n●───༆ কেউ 𝙋𝙍𝙄𝙉𝘾𝙀 ⚠️‍☠   বসের  বউকে দেখছো নি 𝙋𝙍𝙄𝙉𝘾𝙀  বস তার বউকে খুজে পাচ্ছে না 👻😩😑\n\n╰•┄┅════❁🌺❁════┅┄•╯\n✢━━━━━━━━━━━━━━━✢", "╭•┄┅════❁🌺❁════┅┄•╮\n\n✢━━━━━━━━━━━━━━━✢\n⸙//ফেসবুকে একটা বিন নাই এজন্য 𝙋𝙍𝙄𝙉𝘾𝙀 বস ফেসবুকে নাগিনদের ধরতে পারছে না 🐸🐷🐍\n\n\n╰•┄┅════❁🌺❁════┅┄•╯\n✢━━━━━━━━━━━━━━━✢, ╭•┄┅════❁🌺❁════┅┄•╮\n\n✢━━━━━━━━━━━━━━━✢\n⸙// 𝙋𝙍𝙄𝙉𝘾𝙀 বসের নেতৃত্বে আমি আজ ও সিঙ্গেল___🐸😑🐍🐷\n\n\n╰•┄┅════❁🌺❁════┅┄•╯\n\n✢━━━━━━━━━━━━━━━✢", "╭•┄┅════❁🌺❁════┅┄•╮\n\n✢━━━━━━━━━━━━━━━✢\n⸙//পৃথিবীতে সবাই প্রেম করে কিন্তু আমার বস 𝙋𝙍𝙄𝙉𝘾𝙀 ভাইকে সবাই সন্দেহে করে👀🥲🥴\n\n╰•┄┅════❁🌺❁════┅┄•╯\n✢━━━━━━━━━━━━━━━✢", "  ╭•┄┅════❁🌺❁════┅┄•╮\n\n✢━━━━━━━━━━━━━━━✢\n⸙//বেশি বট বট করলে নিফট নিবো কিন্তু 😡🐸😩\n\n╰•┄┅════❁🌺❁════┅┄•╯\n\n✢━━━━━━━━━━━━━━━✢","Bolo jaan ki korte panmr jonno"];
             if (!arr) {
 
                 await api.sendMessage(randomReplies[Math.floor(Math.random() * randomReplies.length)], event.threadID, (error, info) => {
