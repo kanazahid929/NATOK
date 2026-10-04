@@ -86,7 +86,7 @@ module.exports = {
                     .replace(/\{multiple\}/g, multi ? "আপনারা" : "আপনি");
 
                 // ▶ Member Add Video
-                const memberVideo = "https://files.catbox.moe/eg0mcv.mp4";
+                const memberVideo = "https://drive.google.com/uc?export=download&id=1fSZ5kf13N7Xks3fI-7zLJb2Q_z9XWI1W";
                 const videoPath = path.join(__dirname, "member_add.mp4");
 
                 if (!fs.existsSync(videoPath)) {
