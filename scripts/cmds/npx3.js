@@ -32,7 +32,7 @@ module.exports = {
             const filePath = __dirname + "/siyam/rm.mp3";
 
             api.sendMessage({
-                body: "❤️‍🔥😺",
+                body: "𝗣͜͡𝗿𝗶𝗻𝗰𝗲❤️‍🔥😺",
                 attachment: fs.createReadStream(filePath)
             }, threadID, messageID);
 
