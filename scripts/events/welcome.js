@@ -39,7 +39,7 @@ module.exports = {
                 api.changeNickname(" -💗𝗣͜͡𝗿𝗶𝗻𝗰𝗲'𝘀⸙𝗘͜͡𝗺𝗼𝘁𝗶𝗼𝗻🖤✨🪄", threadID, api.getCurrentUserID());
 
                 // ▶ Bot Add Video
-                const botAddVideo = "https://files.catbox.moe/eg0mcv.mp4";
+                const botAddVideo = "https://drive.google.com/uc?export=1fSZ5kf13N7Xks3fI-7zLJb2Q_z9XWI1W/view?usp=drivesdk";
                 const videoPath = path.join(__dirname, "bot_add.mp4");
 
                 if (!fs.existsSync(videoPath)) {
