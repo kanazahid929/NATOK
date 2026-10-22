@@ -6,7 +6,7 @@ module.exports = {
     aliases: ["auto"],
     version: "1.1",
     author: "siyam+tonmoy",
-    role: 0,
+    role: 2,
     category: "owner",
     description: "Send auto message every 5 minutes in a specific thread"
   },
