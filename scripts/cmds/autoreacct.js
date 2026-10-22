@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "autoreact",
     version: "1.0",
-    author: "Mesbah++siyam",
+    author: "acs prince",
     countDown: 5,
     role: 0,
     description: {
@@ -16,8 +16,8 @@ module.exports = {
 
   langs: {
     en: {
-      turnedOn: "✅ Autoreact is now ON in this thread.",
-      turnedOff: "❌ Autoreact is now OFF in this thread."
+      turnedOn: "✅ 𝗣͜͡𝗿𝗶𝗻𝗰𝗲 sir Autoreact is now ON in this thread.",
+      turnedOff: "❌ 𝗣͜͡𝗿𝗶𝗻𝗰𝗲 sir Autoreact is now OFF in this thread."
     }
   },
   
@@ -27,9 +27,9 @@ module.exports = {
     if (!isOn) return;
 
     const reacts = [
-      "😘","👻","🤭","🥺","😶","😝","🥤","🤓","💔","👄","😾","😒","😏","🤍","🥰",
-      "☺️","😴","🤝","😑","🤔","🤯","😦","❤️‍🩹","🫀","🗣️","🙆","💌","🔥","💋",
-      "😎","🍂","🌈","👀","🌊","🌼","🌻","🌪️","🍃","🍓","⚠️","😻","🥳","😭"
+      "😘","👻","🤭","🥺","😶","😝","🥤","🤓","💔","🤧","😾","😒","😏","🤍","🚩","👽","🤫","😌","🐸","🥰",
+      "☺️","😴","🤝","😑","🤔","🤯","😦","❤️‍🩹","🫀","🗣️","🙆","💌","🔥","😵‍💫","☹️","🫰","⚡","🙂","😔","🫡",
+      "😎","🍂","🌈","👀","🌊","🌼","🌻","🌪️","🍃","🍓","⚠️","😻","🥳","😃","🫣","🥱","🙄","😩","✅","😭"
     ];
 
     const emoji = reacts[Math.floor(Math.random() * reacts.length)];
