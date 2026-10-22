@@ -5,8 +5,8 @@ module.exports = {
     name: "vs2",
     aliases: ["auto"],
     version: "1.1",
-    author: "ASIF",
-    role: 2,
+    author: "siyam+tonmoy",
+    role: 0,
     category: "owner",
     description: "Send auto message every 5 minutes in a specific thread"
   },
@@ -23,7 +23,7 @@ module.exports = {
     }
 
     if (!["start", "on", "stop", "off"].includes(action)) {
-      return api.sendMessage("সিয়াম বস এটা দিয়ো না ওর মার ভোদা পুড়ে একদম ছাড়খার হয়ে যাবে তাহলে 🥂🍷😈Invalid action. Use: start/on or stop/off", event.threadID);
+      return api.sendMessage(" prince বস এটা দিয়ো না ওর মার ভোদা পুড়ে একদম ছাড়খার হয়ে যাবে তাহলে 🥂🍷😈Invalid action. Use: start/on or stop/off", event.threadID);
     }
 
     // Start / On
