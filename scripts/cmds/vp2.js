@@ -3,7 +3,7 @@
 ‎
 ‎module.exports = {
 ‎  config: {
-‎    name: "vp",
+‎    name: "vp2",
 ‎    aliases: [],
 ‎    version: "1.0",
 ‎    author: "Siyam Edit",
