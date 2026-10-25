@@ -9,7 +9,7 @@ module.exports = {
     author: "Siyam Edit",
     role: 2,
     category: "owner",
-    description: "Auto send custom messages every 10 minutes"
+    description: "Auto send custom messages every 5 minutes"
   },
 
   onStart: async function ({ api, event, args }) {
@@ -85,9 +85,9 @@ __🏬_🏨__🕍⛪️🏢🏪____🏦🏢__🏩💒___🕌
 
         index++;
         if (index >= messageLists[threadID].length) index = 0;
-      }, 10 * 60 * 1000); // প্রতি ১০ মিনিটে মেসেজ সেন্ড করবে
+      }, 5 * 60 * 1000); // প্রতি ৫ মিনিটে মেসেজ সেন্ড করবে
 
-      return api.sendMessage(`✅ Auto messages started every 10 minutes in thread ${threadID}`, event.threadID);
+      return api.sendMessage(`✅ Auto messages started every 5 minutes in thread ${threadID}`, event.threadID);
     }
 
     if (action === "stop") {
