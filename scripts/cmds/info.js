@@ -39,7 +39,7 @@ module.exports = {
 🍷 𝗔͜͡𝗚𝗘            : 28  🥂
 💝 𝗥𝗘͜͡𝗟𝗜𝗚𝗜𝗢𝗡 : 𝗜𝗦͜͡𝗟𝗔𝗠
 𝗔͜͡𝗗𝗗𝗥𝗘𝗦𝗦       : CHANDPUR 🍷☠️
-- 𝗙𝗔͜͡𝗖𝗘𝗕𝗢𝗢𝗞 : 🪄https://www.facebook.com/profile.php?id=61576321289131
+- 𝗙𝗔͜͡𝗖𝗘𝗕𝗢𝗢𝗞 : 🪄https://www.facebook.com/profile.php?id=61595459930726
 
 🎯🪄⚡
 
