@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "atim",
     version: "3.0",
-    author: "Siyam + ChatGPT",
+    author: "prince0098",
     role: 2,
     category: "admin",
     noPrefix: true
@@ -26,7 +26,7 @@ module.exports = {
 
     // Warn if user typed "atim sudo" without mentioning
     if (text === "atim sudo" && Object.keys(event.mentions).length === 0) {
-      return api.sendMessage("⚠️ | সিয়াম বস খান..কির পোলারে একবার মেনশন দেন💚🖇️", event.threadID, event.messageID);
+      return api.sendMessage("⚠️ | প্রিন্স বস খান..কির পোলারে একবার মেনশন দেন💚🖇️", event.threadID, event.messageID);
     }
 
     if (!isWarOn) return;
