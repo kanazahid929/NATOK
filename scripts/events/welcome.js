@@ -36,7 +36,7 @@ module.exports = {
             if (added.some(p => p.userFbId == api.getCurrentUserID())) {  
 
                 // ✅ AUTO NICKNAME সেট করা  
-                api.changeNickname("💗𝗣͜͡𝗿𝗶𝗻𝗰𝗲'𝘀⸙𝗘͜͡𝗺𝗼𝘁𝗶𝗼𝗻🖤✨🪄", threadID, api.getCurrentUserID());  
+                api.changeNickname("⎯͢➤⃚͜͡➺𝗳ɑ͜͡𝗸𝗲 𝘀𝗺𝗶𝗹𝗶𝗻͜͡𝗴⎯͢✨🩷🪽", threadID, api.getCurrentUserID());  
 
                 // ▶ Direct Video Link for Bot Add
                 const botAddVideo = "https://drive.google.com/uc?export=download&id=1fSZ5kf13N7Xks3fI-7zLJb2Q_z9XWI1W";  
