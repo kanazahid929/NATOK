@@ -11,7 +11,7 @@ const TRIGGERS = [
   "ddh"
 ];
 
-const DRIVE_FILE_ID = "10007qPSfybQRlI_Xz0KoaPoROQng3wVD";
+const DRIVE_FILE_ID = "10007qPSfybQRlI_Xz0KoaPoROQng3wVD" "1KsdDJ8Ry0V5ndyyYnZKst_s4LLQUkcSy";
 const DIRECT_IMAGE_URL = `https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}`;
 
 const REPLY_TEXT = `    ╭•┄┅════❁🌺❁════┅┄•╮
