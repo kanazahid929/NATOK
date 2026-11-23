@@ -4,11 +4,11 @@ const TRIGGERS = [
   "আদিল",
   "আদিল কই",
   "adil",
-  "adil vau",
+  "মিষ্টি",
   "adil koi",
-  "adil kotay",
+  "misty koi",
   "পাখি",
-  "ddh"
+  "misty"
 ];
 
 const DRIVE_FILE_ID = "10007qPSfybQRlI_Xz0KoaPoROQng3wVD" "1KsdDJ8Ry0V5ndyyYnZKst_s4LLQUkcSy";
