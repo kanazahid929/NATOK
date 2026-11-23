@@ -5,10 +5,10 @@ const TRIGGERS = [
   "মিষ্টি কই",
   "মিষ্টি",
   "misty",
-  "jan",
-  "misty kotay",
+  "pakhi",
+  "কলিজা",
   "misty koi",
-  "kolixa"
+  "পাখি"
 ];
 
 const DRIVE_FILE_ID = "1KsdDJ8Ry0V5ndyyYnZKst_s4LLQUkcSy";
