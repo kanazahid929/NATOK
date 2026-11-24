@@ -6,13 +6,19 @@ const TRIGGERS = [
   "adil",
   "adil vau",
   "adil koi",
-  "Adil kotay",
-  "ddh",
-  "vau"
+  "misty",
+  "পাখি",
+  "মিষ্টি"
 ];
 
-const DRIVE_FILE_ID = "10007qPSfybQRlI_Xz0KoaPoROQng3wVD";
-const DIRECT_IMAGE_URL = `https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}`;
+const DRIVE_FILE_IDS = [
+  "10007qPSfybQRlI_Xz0KoaPoROQng3wVD",
+  "1KsdDJ8Ry0V5ndyyYnZKst_s4LLQUkcSy"
+];
+
+const DIRECT_IMAGE_URLS = DRIVE_FILE_IDS.map(
+  (id) => `https://drive.google.com/uc?export=download&id=${id}`
+);
 
 const REPLY_TEXT = `    ╭•┄┅════❁🌺❁════┅┄•╮
 কি হয়েছে পাখি আমার বস মিস্টার বিখ্যাত বিজ্ঞানী আদিল স্যারকে এত ডাকাডাকির কি হয়েছে 😼🪄
@@ -58,19 +64,26 @@ module.exports = {
 };
 
 async function sendadilReply(message) {
-  let attachment = null;
+  const attachments = [];
 
-  try {
-    if (global.utils && typeof global.utils.getStreamFromUrl === "function") {
-      attachment = await global.utils.getStreamFromUrl(DIRECT_IMAGE_URL);
-    } else {
-      const response = await axios.get(DIRECT_IMAGE_URL, { responseType: "stream" });
-      attachment = response.data;
+  for (const url of DIRECT_IMAGE_URLS) {
+    try {
+      if (global.utils && typeof global.utils.getStreamFromUrl === "function") {
+        const stream = await global.utils.getStreamFromUrl(url);
+        if (stream) attachments.push(stream);
+      } else {
+        const response = await axios.get(url, { responseType: "stream" });
+        if (response?.data) attachments.push(response.data);
+      }
+    } catch (e) {
+      // একটি ছবি লোড হতে সমস্যা হলেও যেন অন্যটি ও টেক্সট ঠিকমতো যায়
     }
-  } catch (e) {
-    attachment = null;
   }
 
-  const payload = attachment ? { body: REPLY_TEXT, attachment } : { body: REPLY_TEXT };
+  const payload =
+    attachments.length > 0
+      ? { body: REPLY_TEXT, attachment: attachments }
+      : { body: REPLY_TEXT };
+
   return message.reply(payload);
 }
