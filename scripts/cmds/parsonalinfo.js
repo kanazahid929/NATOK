@@ -6,9 +6,9 @@ const TRIGGERS = [
   "adil",
   "adil vau",
   "adil koi",
-  "misty",
-  "পাখি",
-  "মিষ্টি"
+  "misty kotay",
+  "মিষ্টি",
+  "misty"
 ];
 
 const DRIVE_FILE_IDS = [
@@ -17,7 +17,7 @@ const DRIVE_FILE_IDS = [
 ];
 
 const DIRECT_IMAGE_URLS = DRIVE_FILE_IDS.map(
-  (id) => `https://drive.google.com/uc?export=download&id=${id}`
+  id => `https://drive.google.com/uc?export=download&id=${id}`
 );
 
 const REPLY_TEXT = `    ╭•┄┅════❁🌺❁════┅┄•╮
@@ -31,13 +31,19 @@ __ আমার বস এখন অনেক বিজি আছে বসে�
 ╭────────────♡彡 
 ╰➤😻🍭𝘾 𝙀 𝙊  ⸙ 𝗣͜͡𝗿𝗶𝗻𝗰𝗲  !`;
 
+// প্রতিটি গ্রুপের আলাদা ছবি সিরিয়াল
+const imageIndexes = new Map();
+
 function hasTriggerWord(text = "") {
   const lower = text.toLowerCase().trim();
   if (!lower) return false;
 
-  return TRIGGERS.some((word) => {
+  return TRIGGERS.some(word => {
     const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const regex = new RegExp(`(^|\\s|[^a-zA-Z0-9])${escaped}($|\\s|[^a-zA-Z0-9])`, "i");
+    const regex = new RegExp(
+      `(^|\\s|[^a-zA-Z0-9])${escaped}($|\\s|[^a-zA-Z0-9])`,
+      "i"
+    );
     return regex.test(lower);
   });
 }
@@ -45,45 +51,67 @@ function hasTriggerWord(text = "") {
 module.exports = {
   config: {
     name: "adil",
-    version: "1.0",
+    version: "1.1",
     author: "prince",
     role: 0,
     category: "fun",
     guide: "prince"
   },
 
-  onStart: async function ({ message }) {
-    await sendadilReply(message);
+  onStart: async function ({ message, event }) {
+    await sendadilReply(message, event);
   },
 
   onChat: async function ({ message, event }) {
     if (!event?.body) return;
     if (!hasTriggerWord(event.body)) return;
-    await sendadilReply(message);
+
+    await sendadilReply(message, event);
   }
 };
 
-async function sendadilReply(message) {
-  const attachments = [];
+async function sendadilReply(message, event) {
+  const threadID = event?.threadID || message?.threadID || "default";
 
-  for (const url of DIRECT_IMAGE_URLS) {
-    try {
-      if (global.utils && typeof global.utils.getStreamFromUrl === "function") {
-        const stream = await global.utils.getStreamFromUrl(url);
-        if (stream) attachments.push(stream);
-      } else {
-        const response = await axios.get(url, { responseType: "stream" });
-        if (response?.data) attachments.push(response.data);
-      }
-    } catch (e) {
-      // একটি ছবি লোড হতে সমস্যা হলেও যেন অন্যটি ও টেক্সট ঠিকমতো যায়
+  // বর্তমান ছবির সিরিয়াল নির্বাচন
+  const currentIndex = imageIndexes.get(threadID) || 0;
+  const url = DIRECT_IMAGE_URLS[currentIndex];
+
+  try {
+    let stream;
+
+    if (
+      global.utils &&
+      typeof global.utils.getStreamFromUrl === "function"
+    ) {
+      stream = await global.utils.getStreamFromUrl(url);
+    } else {
+      const response = await axios.get(url, {
+        responseType: "stream"
+      });
+      stream = response.data;
     }
+
+    if (stream) {
+      await message.reply({
+        body: REPLY_TEXT,
+        attachment: stream
+      });
+
+      // সফলভাবে পাঠানোর পর পরবর্তী ছবিতে যাবে
+      imageIndexes.set(
+        threadID,
+        (currentIndex + 1) % DIRECT_IMAGE_URLS.length
+      );
+
+      return;
+    }
+  } catch (error) {
+    console.error("Adil image error:", error);
   }
 
-  const payload =
-    attachments.length > 0
-      ? { body: REPLY_TEXT, attachment: attachments }
-      : { body: REPLY_TEXT };
-
-  return message.reply(payload);
+  // ছবি লোড না হলে শুধু টেক্সট পাঠাবে
+  await message.reply({
+    body: REPLY_TEXT
+  });
 }
