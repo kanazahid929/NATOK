@@ -50,7 +50,7 @@ function hasTriggerWord(text = "") {
 
 module.exports = {
   config: {
-    name: "adil",
+    name: "adil1",
     version: "1.1",
     author: "prince",
     role: 0,
