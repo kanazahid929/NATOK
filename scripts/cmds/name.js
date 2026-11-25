@@ -6,9 +6,9 @@ const TRIGGERS = [
   "adil",
   "adil vau",
   "adil koi",
-  "misty kotay",
-  "মিষ্টি",
-  "misty"
+  "adil kotay",
+  "vau",
+  "ddh"
 ];
 
 const DRIVE_FILE_IDS = [
